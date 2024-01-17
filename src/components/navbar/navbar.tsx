@@ -1,0 +1,89 @@
+"use client";
+
+import Image from "next/image";
+import logo from "../../../public/assets/Standard Collection 27.svg";
+import menuHolder from "../../../public/assets/Image-Placeholder.svg";
+import {
+  ExpandMore,
+  FavoriteBorder,
+  PersonOutline,
+  Search,
+  ShoppingBagOutlined,
+} from "@mui/icons-material";
+import Link from "next/link";
+import { useState } from "react";
+import MainSlider from "../mainSlider/mainSlider";
+
+function Navbar() {
+  const [showSearchInput, setShowSearchInput] = useState<boolean>(false);
+  const handleSearchClick = () => {
+    setShowSearchInput(!showSearchInput);
+  };
+
+  return (
+    <div className="  ">
+      <div className="relative w-full flex flex-col">
+        <div className="w-full h-auto ">
+          {/* <Image src={menuHolder} alt={"holder"} className="w-full h-auto " /> */}
+          <MainSlider/>
+        </div>
+        <div className="flex flex-wrap justify-between w-full py-2 items-center absolute top-0 px-16 z-10">
+          <div className="flex gap-3 justify-center items-center">
+            <div className="flex items-center">
+              <span>(0)</span>
+              <ShoppingBagOutlined />
+            </div>
+            <FavoriteBorder />
+            <div className="flex gap-1">
+              <PersonOutline />
+              {/* <span>منصوره فلاح</span> */}
+            </div>
+            <div className={`transition-opacity ease-in delay-1000 duration-1000`}>
+              <div
+                className="relative cursor-pointer"
+                onClick={handleSearchClick}
+              >
+                <Search className="z-10" />
+              </div>
+              {showSearchInput && (
+                <input
+                  type="search"
+                  placeholder="جستجو ..."
+                  className='text-sm w-96 pl-3 pr-9 py-3 border-2 border-solid rounded-xl absolute border-gray-300 bg-gray-50 focus:outline-none'
+                />
+              )}
+            </div>
+          </div>
+          <div>
+            <div className="flex gap-5 text-white font-normal text-xs   ">
+              <Link href={""}>
+                {" "}
+                <ExpandMore /> دسته بندی
+              </Link>
+              <Link href={""}>
+                {" "}
+                <ExpandMore /> درباره ما
+              </Link>
+              <Link href={""}>
+                {" "}
+                <ExpandMore /> محصولات
+              </Link>
+              <Link href={""}>
+                {" "}
+                <ExpandMore /> فروشگاه
+              </Link>
+              <button></button>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap justify-end w-40">
+            <span className="font-bold text-3xl text-white ">SEVIN</span>
+            {/* <Image src={logo} alt={"holder"} className="w-7 h-auto fill-current text-white" /> */}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Navbar;
