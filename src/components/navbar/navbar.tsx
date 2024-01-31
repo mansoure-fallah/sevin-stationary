@@ -22,12 +22,12 @@ function Navbar() {
 
   return (
     <div className="  ">
-      <div className="relative w-full flex flex-col">
-        <div className="w-full h-auto ">
-          {/* <Image src={menuHolder} alt={"holder"} className="w-full h-auto " /> */}
+      <div className="flex flex-col">
+        <div>
+          {/* <Image src={menuHolder} alt={"holder"} fill/> */}
           <MainSlider/>
         </div>
-        <div className="flex flex-wrap justify-between w-full py-2 items-center absolute top-0 px-16 z-10">
+        <div className="flex flex-wrap justify-between w-full py-5 items-center absolute top-0 px-14 z-10">
           <div className="flex gap-3 justify-center items-center">
             <div className="flex items-center">
               <span>(0)</span>
@@ -55,7 +55,7 @@ function Navbar() {
             </div>
           </div>
           <div>
-            <div className="flex gap-5 text-white font-normal text-xs   ">
+            <div className="flex gap-10 text-white font-normal text-xs   ">
               <Link href={""}>
                 {" "}
                 <ExpandMore /> دسته بندی
